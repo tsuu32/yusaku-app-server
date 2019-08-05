@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node server/server.js",
-    "build": "npm run --prefix yusaku-app build",
+    "build": "npm --prefix yusaku-app install && npm run --prefix yusaku-app build",
     "dev:server": "nodemon server/server.js",
     "dev:client": "npm run --prefix yusaku-app start",
     "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\""
