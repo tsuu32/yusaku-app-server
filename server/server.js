@@ -13,10 +13,13 @@ Message.init({
   displayName: Sequelize.STRING,
   clicked: Sequelize.STRING,
   countMetal: Sequelize.INTEGER
-}, { sequelize, modelName: 'message' });
+}, {
+  sequelize,
+  modelName: 'message'
+});
 
 app.post('/api', function (req, res) {
-  console.log(req.body.displayName);
+  console.log(req.body);
   sequelize.sync()
     .then(() => Message.create({
       content: req.body.content,
@@ -26,27 +29,16 @@ app.post('/api', function (req, res) {
     }))
     .then(mes => {
       console.log(mes.toJSON());
+      res.send(mes.toJSON());
   });
 });
 
 app.get('/api', function (req, res) {
-  const response = [
-  { id: 0,
-    displayName: "A県B小C.D君",
-    content: "失恋した",
-    clicked: 'new Map([["hokkaido", 3],["aomori", 3],["okinawa", 51],["osaka", 101],["siga",151]])',
-    countMetal: 100
-  },
-  {
-    id: 1,
-    displayName: "D県B小C.D君",
-    content: "恋した",
-    clicked: 'new Map[["kanagawa", 3],["aomori", 3],["okinawa", 51],["osaka", 101],["siga",151]]',
-    countMetal: 50
-  }
-  ]
   res.set('Content-Type', 'application/json');
-  res.send(response);
+  Message.findAll().then(mes => {
+    // console.log("All users:", JSON.stringify(mes, null, 2));
+        res.send(mes);
+  });
 });
 
 
