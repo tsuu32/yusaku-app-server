@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node server/server.js",
-    "build": "npm --prefix yusaku-app install && npm run --prefix yusaku-app build",
+    "build": "npm --prefix client install && npm run --prefix client build",
     "dev:server": "nodemon server/server.js",
-    "dev:client": "npm run --prefix yusaku-app start",
+    "dev:client": "npm run --prefix client start",
     "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\""
   },
   "keywords": [],
@@ -15,7 +15,10 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "pg": "^7.12.0",
+    "sequelize": "^5.12.3",
+    "sequelize-cli": "^5.5.0"
   },
   "devDependencies": {
     "concurrently": "^4.1.1",
