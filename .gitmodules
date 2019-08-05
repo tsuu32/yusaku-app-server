@@ -1,6 +1,3 @@
-[submodule "yusaku-app"]
-	path = yusaku-app
-	url = https://github.com/enpitut2019/yusaku-app.git
 [submodule "client"]
 	path = client
 	url = https://github.com/enpitut2019/yusaku-app.git
