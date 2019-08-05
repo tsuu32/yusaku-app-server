@@ -8,10 +8,10 @@ app.use(bodyParser.json());
 
 
 if (process.env.NODE_ENV === 'production') {
-  console.log(`Production mode detected: Serving react-ui`);
+  console.log(`Production mode detected: Serving yusaku-app`);
   const path = require('path');
 
-  const buildDir = path.join(__dirname, '../react-ui/build');
+  const buildDir = path.join(__dirname, '../yusaku-app/build');
 
   app.use(express.static(buildDir));
 

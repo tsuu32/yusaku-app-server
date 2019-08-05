@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node server/server.js",
-    "build": "cd yusaku-app/ && npm install && npm run build"
+    "build": "npm --prefix yusaku-app install && npm run --prefix yusaku-app build"
   },
   "keywords": [],
   "author": "",
