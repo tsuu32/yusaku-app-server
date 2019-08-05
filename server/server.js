@@ -4,6 +4,31 @@ const bodyParser = require('body-parser');
 const app = express();
 app.use(bodyParser.json());
 
+const Sequelize = require('sequelize');
+const sequelize = new Sequelize(process.env.DATABASE_URL);
+
+class Message extends Sequelize.Model {}
+Message.init({
+  content: Sequelize.STRING,
+  displayName: Sequelize.STRING,
+  clicked: Sequelize.STRING,
+  countMetal: Sequelize.INTEGER
+}, { sequelize, modelName: 'message' });
+
+app.post('/api', function (req, res) {
+  console.log(req.body.displayName);
+  sequelize.sync()
+    .then(() => Message.create({
+      content: req.body.content,
+      displayName: req.body.displayName,
+      clicked: "",
+      countMetal: 0
+    }))
+    .then(mes => {
+      console.log(mes.toJSON());
+  });
+});
+
 app.get('/api', function (req, res) {
   const response = [
   { id: 0,
