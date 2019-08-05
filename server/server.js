@@ -51,10 +51,10 @@ app.get('/api', function (req, res) {
 
 
 if (process.env.NODE_ENV === 'production') {
-  console.log(`Production mode detected: Serving yusaku-app`);
+  console.log(`Production mode detected: Serving client`);
   const path = require('path');
 
-  const buildDir = path.join(__dirname, '../yusaku-app/build');
+  const buildDir = path.join(__dirname, '../client/build');
 
   app.use(express.static(buildDir));
 
