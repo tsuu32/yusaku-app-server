@@ -4,7 +4,10 @@ const bodyParser = require('body-parser');
 const app = express();
 app.use(bodyParser.json());
 
-
+app.get('/api', function (req, res) {
+  res.set('Content-Type', 'application/json');
+  res.send('{"message":"Hello from the custom server!"}');
+});
 
 
 if (process.env.NODE_ENV === 'production') {
