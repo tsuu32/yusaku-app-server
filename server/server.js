@@ -130,7 +130,8 @@ app.post('/api/reaction/me', function (req, res) {
     }).then(epi => {
       console.log(epi);
       res.json({
-        result: 'success.'
+        id: id,
+        result: 'success'
       });
     });
   });
@@ -160,7 +161,8 @@ app.post('/api/reaction/friend', function (req, res) {
     }).then(epi => {
       console.log(epi);
       res.json({
-        result: 'success.'
+        id : id,
+        result: 'success'
       });
     });
   });
@@ -183,7 +185,8 @@ app.post('/api/reaction/like', function (req, res) {
     }).then(epi => {
       // console.log(epi);
       res.json({
-        result: 'success.'
+        id : id,
+        result: 'success'
       });
     });
   });
