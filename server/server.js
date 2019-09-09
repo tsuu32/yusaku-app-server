@@ -193,24 +193,6 @@ app.post('/api/reaction/like', function (req, res) {
 });
 
 
-app.post('/api/reaction/like', function (req, res) {
-  console.log(req.body);
-  sequelize.sync()
-    .then(() => Episode.create({
-      year: req.body.year,
-      prefecture: req.body.prefecture,
-      content: req.body.content,
-      name: req.body.name,
-      reactionMe: "",
-      reactionFriend: "",
-      reactionLike: 0
-    }))
-    .then(epi => {
-      console.log(epi.toJSON());
-      res.send(epi.toJSON());
-  });
-});
-
 if (process.env.NODE_ENV === 'production') {
   console.log(`Production mode detected: Serving client`);
   const path = require('path');
